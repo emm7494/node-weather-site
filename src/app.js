@@ -65,7 +65,8 @@ app.get('/weather', (req, res) => {
         forecast(coordinates[1], coordinates[0], (error, {
             summary,
             temperature,
-            precipProbability: precipitation
+            precipProbability: precipitation,
+            windSpeed: windspeed
         } = {}) => {
             if (error) {
                 console.log(error);
@@ -78,13 +79,14 @@ app.get('/weather', (req, res) => {
 //                temperature,
 //                precipProbability: precipitation
 //            } = period;
-            console.log(`${summary}. It is currently ${temperature} degrees. There is a ${precipitation} chance of rain.`);
+            console.log(`${summary}. It is currently ${temperature} degrees. The windspeed is ${windspeed}. There is a ${precipitation} chance of rain.`);
             res.send({
                 title: 'Weather',
                 location,
                 summary,
                 temperature,
-                precipitation
+                precipitation,
+                windspeed
             });
             console.log(chalk.inverse.cyan('forecast ended!!!'));
         });

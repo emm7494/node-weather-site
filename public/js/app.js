@@ -19,13 +19,13 @@ weatherForm.addEventListener('submit', (e) => {
     //    const  = 
     fetchWeather(query)
         .then(response => response.json())
-        .then(({ error, location, summary, temperature, precipitation }) => {
+        .then(({ error, location, summary, temperature, precipitation, windspeed }) => {
             if (error) {
                 messageOne.textContent = error;
                 return console.log(error);
             }
             messageOne.innerHTML = location;
-            messageTwo.innerHTML = `${summary}. It is currently ${temperature} degrees. <br/> There is a ${precipitation} chance of rain.`;
+            messageTwo.innerHTML = `${summary}. It is currently ${temperature} degrees. <br/>The windspeed is ${windspeed}. <br/> There is a ${precipitation} chance of rain.`;
 
             console.log(error);
             console.log(`${summary}. It is currently ${temperature} degrees. There is a ${precipitation} chance of rain.`);
