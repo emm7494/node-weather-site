@@ -5,7 +5,7 @@ const chalk = require('chalk');
 const { geocode, forecast } = require('./utils');
 
 const app = express();
-
+const port = process.env.PORT || 3000;
 // Define paths for Express config
 const publicDirectoryPath = path.join(__dirname, '../public');
 const viewsDirectoryPath = path.join(__dirname, '../templates/views');
@@ -110,6 +110,6 @@ app.get('*', (req, res) => {
     });
 });
 
-app.listen('3000', () => {
-    console.log('Serving weather_app at port 3000...');
+app.listen(port, () => {
+    console.log(`Serving weather_app at port ${port}...`);
 });

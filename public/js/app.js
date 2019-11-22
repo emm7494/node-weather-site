@@ -1,6 +1,6 @@
 console.log('Client side js loading...');
 const fetchWeather = location => {
-    return fetch(`http://localhost:3000/weather?address=${location}`);
+    return fetch(`/weather?address=${location}`);
 };
 
 const weatherForm = document.querySelector('form');
